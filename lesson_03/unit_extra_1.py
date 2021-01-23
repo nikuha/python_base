@@ -11,15 +11,11 @@ print(goods_rub)
 
 # самый логичным кажется вариант не с лямбда, а с простой функцией
 def euro_to_rub(item):
-    item['price'] *= 90
-    return item
+    item_new = item.copy()
+    item_new['price'] *= 90
+    return item_new
 
-my_map = map(euro_to_rub, goods)
-print(list(my_map))
-print(goods)
+goods_rub = list(map(euro_to_rub, goods))
+print(goods_rub)
 
-# обнаружился странный эффект, если использовать через обычную функцию,
-# то в момент приведения к списку list() первоначальный список тоже меняется,
-# последняя строчка выводит измененный список !!
-# объясните, пожалуйста, почему?
 
